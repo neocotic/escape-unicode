@@ -1,0 +1,41 @@
+{
+  "name": "escape-unicode",
+  "version": "0.1.0",
+  "description": "Escapes Unicode characters",
+  "homepage": "https://github.com/NotNinja/escape-unicode",
+  "bugs": {
+    "url": "https://github.com/NotNinja/escape-unicode/issues"
+  },
+  "author": {
+    "name": "Alasdair Mercer",
+    "email": "mercer.alasdair@gmail.com",
+    "url": "https://not.ninja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "converter",
+    "unicode",
+    "escape"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NotNinja/escape-unicode.git"
+  },
+  "devDependencies": {
+    "codecov": "^3.0.0",
+    "eslint": "^4.16.0",
+    "eslint-config-notninja": "^0.2.3",
+    "mocha": "^5.0.0",
+    "nyc": "^11.4.1"
+  },
+  "main": "src/escape-unicode.js",
+  "scripts": {
+    "coverage": "nyc report && codecov",
+    "pretest": "eslint \"src/**/*.js\" \"test/**/*.js\"",
+    "test": "nyc mocha -R list \"test/**/*.spec.js\"",
+    "posttest": "nyc check-coverage"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}

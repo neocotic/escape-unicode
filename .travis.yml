@@ -1,0 +1,16 @@
+sudo: false
+language: node_js
+node_js:
+  - "8"
+  - "9"
+script:
+  - npm test
+after_success:
+  - npm run coverage
+notifications:
+  email: false
+  slack:
+    rooms:
+      - secure: 0Vrwc9XWMCp2E1MzG0sfzluLPs4IdRbsjq3tn1s1p3Sm7kzDsxH+dqDi5AlL0OwAQ/H6jgwS/WrnGwzVGjvqDRSfDawWvY8m9zv8lWxuG7O/3FhstdpkuINgRbgs07T7m5NgyXIVjyt6rBcLptEl3pRHjzQfM5ivWefd2TY++iQpVD8wVSj7vzATGVXjIYBjqKJrkDlIrDdtZfSqAJTwjaXlUL/jQw+Kt3xz9M1ovhb5iA4UEDT2ctlESz63YfWloyYXK7SImcPFCnPdMaX3dal5i624xHpyDTHGTNya7HyJdbEdpwb5zviTfZGRUEC2kUWHCFWHdMK0Uvyrssw/KdvEEtI4sIZ0+E3LGsgtyL9+JLmVEcPh/vYag32KgcDaJYyErE6cVWH3qrKpNgKN8K3RP4RhHRM1NykgwmrDvUzKHuKkzrDjpV7jtmZz6xPnKv+aEvXCVJTFSUhMvg/7cxg275TlSJhDMHIWwrjTMS1fTpW5lTrNH2QRIdiB3UIiz5PSHqg37zdITyy/3iNMCPKTK55APRVCpHfowgiG6wO2FdSSfys7XW4B+1TxqpTkwu2oKFn6rmtDBq/1ul4QVYhZRqCo95x0GDFyP5jZgoTff6zgjZ+yF+Cliw3Kda8iV6DdL5xQf2ii989JmY7005XLVPH9fQXZ0DpgLFaAiRI=
+    on_failure: change
+    on_success: change
