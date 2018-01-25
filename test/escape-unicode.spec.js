@@ -29,5 +29,96 @@ const assert = require('assert');
 const escapeUnicode = require('../src/escape-unicode');
 
 describe('escapeUnicode', () => {
-  // TODO: Complete
+  it.skip('should convert characters to Unicode escapes', () => {
+    // TODO: Complete
+  });
+
+  context('when input is null', () => {
+    it('should return null', () => {
+      const actual = escapeUnicode(null);
+
+      assert.strictEqual(actual, null);
+    });
+  });
+
+  context('when input is empty', () => {
+    it('should return an empty string', () => {
+      const expected = '';
+      const actual = escapeUnicode('');
+
+      assert.strictEqual(actual, expected);
+    });
+  });
+
+  context('when start is specified', () => {
+    it.skip('should convert characters to Unicode escapes from start in input', () => {
+      // TODO: Complete
+    });
+
+    context('and start is negative', () => {
+      it.skip('should convert from beginning of input', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('and start is null', () => {
+      it.skip('should convert from beginning of input', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('when start is greater than length of input', () => {
+      it.skip('return an empty string', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('and input is null', () => {
+      it.skip('should return null', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('when input is empty', () => {
+      it.skip('return an empty string', () => {
+        // TODO: Complete
+      });
+    });
+  });
+
+  context('when end is specified', () => {
+    it.skip('should convert characters to Unicode escapes between start and end in input', () => {
+      // TODO: Complete
+    });
+
+    context('and end is negative', () => {
+      it.skip('should convert from start in input', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('and end is null', () => {
+      it.skip('should convert from start in input', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('when end is greater than length of input', () => {
+      it.skip('return convert from start in input', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('and input is null', () => {
+      it.skip('should return null', () => {
+        // TODO: Complete
+      });
+    });
+
+    context('when input is empty', () => {
+      it.skip('return an empty string', () => {
+        // TODO: Complete
+      });
+    });
+  });
 });
