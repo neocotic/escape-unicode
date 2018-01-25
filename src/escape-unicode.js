@@ -22,10 +22,48 @@
 
 'use strict';
 
-// TODO: Complete
+const parse = require('./parse');
 
+/**
+ * Converts all characters within <code>input</code> to Unicode escapes.
+ *
+ * Optionally, a <code>start</code> index can be provided to begin conversion at a specific location within
+ * <code>input</code>. If <code>start</code> is not specified, <code>null</code>, or negative, the conversion will begin
+ * at the start of <code>input</code>.
+ *
+ * Similarly, an <code>end</code> index can be provided to stop conversion at a specific location within
+ * <code>input</code>. If <code>end</code> is not specified, <code>null</code>, or negative, the conversion will stop at
+ * the end of <code>input</code>.
+ *
+ * @example
+ * escapeUnicode('♥');
+ * //=> "\\u2665"
+ * escapeUnicode('I ♥ Unicode!');
+ * //=> "\\u0049\\u0020\\u2665\\u0020\\u0055\\u006e\\u0069\\u0063\\u006f\\u0064\\u0065\\u0021"
+ * escapeUnicode('I ♥ Unicode!', 2, 3);
+ * //=> "\\u2665"
+ * @param {?string} input - the string containing the Unicode characters to be converted (may be <code>null</code>)
+ * @param {number} [start=0] - the index to begin converting characters within <code>input</code> (inclusive - may be
+ * <code>null</code>)
+ * @param {number} [end=input.length] - the index to stop converting characters within <code>input</code> (exclusive -
+ * may be <code>null</code>)
+ * @return {?string} The Unicode escapes converted from the characters within <code>input</code> or <code>null</code> if
+ * <code>input</code> is <code>null</code>.
+ */
 function escapeUnicode(input, start, end) {
-  // TODO: Complete
+  if (input == null) {
+    return input;
+  }
+
+  start = start != null && start >= 0 ? start : 0;
+  end = end != null && end >= 0 ? Math.min(end, input.length) : input.length;
+
+  let result = '';
+  for (let i = start; i < end; i++) {
+    result += `\\u${parse(input[i])}`;
+  }
+
+  return result;
 }
 
 module.exports = escapeUnicode;

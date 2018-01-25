@@ -29,14 +29,25 @@ You'll need to have at least [Node.js](https://nodejs.org) 8 or newer.
 
 ### `escapeUnicode(input[, start][, end])`
 
-TODO: Document
+Converts all characters within `input` to Unicode escapes.
+
+Optionally, a `start` index can be provided to begin conversion at a specific location within `input`. If `start` is not
+specified, `null`, or negative, the conversion will begin at the start of `input`.
+
+Similarly, an `end` index can be provided to stop conversion at a specific location within `input`. If `end` is not
+specified, `null`, or negative, the conversion will stop at the end of `input`.
 
 #### Examples
 
 ``` javascript
 const escapeUnicode = require('escape-unicode');
 
-// TODO: Examples
+escapeUnicode('♥');
+//=> "\\u2665"
+escapeUnicode('I ♥ Unicode!');
+//=> "\\u0049\\u0020\\u2665\\u0020\\u0055\\u006e\\u0069\\u0063\\u006f\\u0064\\u0065\\u0021"
+escapeUnicode('I ♥ Unicode!', 2, 3);
+//=> "\\u2665"
 ```
 
 ## Bugs
