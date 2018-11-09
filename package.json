@@ -1,15 +1,15 @@
 {
   "name": "escape-unicode",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Escapes Unicode characters",
-  "homepage": "https://github.com/NotNinja/escape-unicode",
+  "homepage": "https://github.com/neocotic/escape-unicode",
   "bugs": {
-    "url": "https://github.com/NotNinja/escape-unicode/issues"
+    "url": "https://github.com/neocotic/escape-unicode/issues"
   },
   "author": {
     "name": "Alasdair Mercer",
     "email": "mercer.alasdair@gmail.com",
-    "url": "https://not.ninja"
+    "url": "https://neocotic.com"
   },
   "license": "MIT",
   "keywords": [
@@ -19,14 +19,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/NotNinja/escape-unicode.git"
+    "url": "https://github.com/neocotic/escape-unicode.git"
   },
   "devDependencies": {
-    "codecov": "^3.0.0",
-    "eslint": "^4.16.0",
-    "eslint-config-notninja": "^0.2.3",
-    "mocha": "^5.0.0",
-    "nyc": "^11.4.1"
+    "codecov": "^3.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-notninja": "^0.4.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   },
   "main": "src/escape-unicode.js",
   "scripts": {
