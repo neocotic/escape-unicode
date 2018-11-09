@@ -1,6 +1,6 @@
 {
   "name": "escape-unicode",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Escapes Unicode characters",
   "homepage": "https://github.com/neocotic/escape-unicode",
   "bugs": {
