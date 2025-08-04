@@ -1,9 +1,18 @@
-.nyc_output/
-coverage/
-codecov.yml
+.github
 
-test/
-.*
+.idea
+
+.tshy
+.tshy-build
+tsconfig.json
+
+coverage
+
+src
+test
+
+*.config.mjs
+
 AUTHORS.md
 CHANGES.md
 CONTRIBUTING.md

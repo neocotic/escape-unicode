@@ -1,16 +1,25 @@
 {
   "name": "escape-unicode",
-  "version": "0.2.0",
-  "description": "Escapes Unicode characters",
+  "version": "0.3.0",
+  "description": "Library to escape Unicode characters",
   "homepage": "https://github.com/neocotic/escape-unicode",
   "bugs": {
     "url": "https://github.com/neocotic/escape-unicode/issues"
   },
   "author": {
-    "name": "Alasdair Mercer",
-    "email": "mercer.alasdair@gmail.com",
-    "url": "https://neocotic.com"
+    "name": "neocotic",
+    "url": "https://github.com/neocotic"
   },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://github.com/sponsors/neocotic"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/neocotic"
+    }
+  ],
   "license": "MIT",
   "keywords": [
     "converter",
@@ -21,21 +30,53 @@
     "type": "git",
     "url": "https://github.com/neocotic/escape-unicode.git"
   },
-  "devDependencies": {
-    "codecov": "^3.1.0",
-    "eslint": "^4.19.1",
-    "eslint-config-notninja": "^0.4.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0"
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
   },
-  "main": "src/escape-unicode.js",
+  "type": "module",
+  "types": "./dist/commonjs/index.d.ts",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "scripts": {
-    "coverage": "nyc report && codecov",
-    "pretest": "eslint \"src/**/*.js\" \"test/**/*.js\"",
-    "test": "nyc mocha -R list \"test/**/*.spec.js\"",
-    "posttest": "nyc check-coverage"
+    "build": "tshy",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "npm run verify",
+    "pretest": "tsc --noEmit && mkdirp coverage",
+    "test": "node --import tsx --enable-source-maps --test --experimental-test-coverage --test-reporter spec --test-reporter lcov --test-reporter-destination stdout --test-reporter-destination coverage/lcov.info --test-coverage-include \"src/**\" \"test/**/*.test.ts\"",
+    "verify": "npm run build && npm run lint && npm test"
   },
-  "engines": {
-    "node": ">=8"
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@types/node": "^24.1.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.1",
+    "eslint-plugin-prettier": "^5.5.3",
+    "globals": "^16.3.0",
+    "mkdirp": "^3.0.1",
+    "prettier": "^3.6.2",
+    "tshy": "^3.0.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
+  },
+  "tshy": {
+    "exports": {
+      ".": "./src/index.ts",
+      "./package.json": "./package.json"
+    }
   }
 }
