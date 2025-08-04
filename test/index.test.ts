@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Alasdair Mercer
+ * Copyright (C) 2025 neocotic
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,32 +20,29 @@
  * SOFTWARE.
  */
 
-'use strict';
+import * as assert from "node:assert";
+import { describe, it } from "node:test";
+import * as index from "../src/index.js";
 
-const assert = require('assert');
+describe("index", () => {
+  it("should only have expected named exports", () => {
+    const expected = new Set([
+      "composeFilter",
+      "composeReplacer",
+      "escapeUnicode",
+      "isAscii",
+      "isBmp",
+      "isLatin1",
+      "isNotAscii",
+      "isNotBmp",
+      "isNotLatin1",
+      "replaceChar",
+      "replaceChars",
+      "replaceCode",
+      "replaceCodes",
+    ]);
+    const actual = new Set(Object.keys(index));
 
-const parse = require('../src/parse');
-
-describe('parse', () => {
-  it('should correctly calculate Unicode value as hexadecimal', () => {
-    const tests = {
-      '<': '003c',
-      '=': '003d',
-      '>': '003e',
-      'u': '0075',
-      't': '0074',
-      'f': '0066',
-      '8': '0038',
-      'ⓤ': '24e4',
-      'ⓣ': '24e3',
-      'ⓕ': '24d5',
-      '⑧': '2467'
-    };
-
-    for (const [ ch, expected ] of Object.entries(tests)) {
-      const actual = parse(ch);
-
-      assert.equal(actual, expected);
-    }
+    assert.deepStrictEqual(actual, expected);
   });
 });
